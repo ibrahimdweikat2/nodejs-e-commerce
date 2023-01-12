@@ -25,7 +25,7 @@ app.use('/api/carts',cartRouter);
 app.use('/api/orders',orderRouter);
 app.use('/api/stripe',stripeRouter);
 
-app.use('/api',(req,res)=>{
+app.get('/',(req,res)=>{
     res.send('APP IS RUNNING !');
 })
 
