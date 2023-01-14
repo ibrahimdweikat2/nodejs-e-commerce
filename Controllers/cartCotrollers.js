@@ -20,7 +20,7 @@ export const addCart=async (req,res)=>{
 
 export const getCart=async (req,res)=>{
     try {
-        const Cart=await CartSchema.findOne({userId:req.params.userId});
+        const Cart=await CartSchema.findOne({userId:req.params.userId}).populate('products.productId');
         if(!Cart) return res.status(404).json({message:"Cart not found"});
         res.status(200).json(Cart);
     } catch (error) {
